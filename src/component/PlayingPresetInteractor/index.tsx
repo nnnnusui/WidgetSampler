@@ -33,12 +33,13 @@ const This: Component<Props> = (props) => {
   };
 
   const onClick: JSX.EventHandler<HTMLElement, MouseEvent>
-    = (event) => {
-      if (event.shiftKey) {
-        setEditMode(true);
-        return;
-      }
+    = () => {
       props.play(props.preset);
+    };
+  const onContextMenu: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>
+    = (event) => {
+      event.preventDefault();
+      setEditMode(true);
     };
 
   return (
@@ -52,6 +53,7 @@ const This: Component<Props> = (props) => {
       <Show when={!editMode()}>
         <button
           class={styles.PlayingPresetPlayButton}
+          onContextMenu={onContextMenu}
           onClick={onClick}
         >
           <h1>再生: {name()}</h1>
