@@ -1,3 +1,4 @@
+// import fs from 'fs';
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 import solidPlugin from "vite-plugin-solid";
@@ -12,6 +13,7 @@ export default defineConfig({
       devOptions: { enabled: true },
     }),
   ],
+  base: process.env.GITHUB_PAGES ? "WidgetSampler" : "./",
   test: {
     deps: {
       registerNodeLoader: true,
