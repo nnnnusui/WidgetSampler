@@ -44,7 +44,8 @@ const This: Component<Props> = (props) => {
       return "";
     }
   };
-  const src = () => `http://www.youtube.com/embed/${videoId()}?${params().toString()}`;
+  const protocol = () => window.location.protocol;
+  const src = () => `${protocol()}//www.youtube.com/embed/${videoId()}?${params().toString()}`;
 
   createEffect(() => {
     const ref = getRef();
