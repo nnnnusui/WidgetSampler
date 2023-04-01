@@ -76,6 +76,9 @@ const App: Component = () => {
       };
     setPresets(presets.length, empty);
   };
+  const removePreset = (id: string) => {
+    setPresets((it) => it.filter((it) => it.id !== id));
+  };
 
   return (
     <Providers>
@@ -111,6 +114,7 @@ const App: Component = () => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             setPreset={(...args: unknown[]) => setPresets((it) => it.id === preset.id, ...args)}
+            removePreset={() => removePreset(preset.id)}
             play={playPreset}
             onPreview={playOrders}
             activeSource={activeSource()}

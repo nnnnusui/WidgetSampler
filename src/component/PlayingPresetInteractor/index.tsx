@@ -16,6 +16,7 @@ type Props = JSX.IntrinsicElements["div"]
   & {
     preset: PlayingPreset
     setPreset: SetStoreFunction<PlayingPreset>
+    removePreset: () => void
     play: (preset: PlayingPreset) => void
     onPreview: (orders: PlayingPreset["orders"]) => void
     activeSource: string
@@ -63,6 +64,7 @@ const This: Component<Props> = (props) => {
         <PlayingPresetInputter
           preset={props.preset}
           setPreset={props.setPreset}
+          removePreset={props.removePreset}
           onSubmit={() => setEditMode(false)}
           onPreview={props.onPreview}
         />

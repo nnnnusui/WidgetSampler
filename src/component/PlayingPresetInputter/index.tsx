@@ -14,6 +14,7 @@ type Props = JSX.IntrinsicElements["div"]
   & {
     preset: PlayingPreset
     setPreset: SetStoreFunction<PlayingPreset>
+    removePreset: () => void
     onSubmit: () => void
     onPreview: (orders: PlayingPreset["orders"]) => void
   }
@@ -70,7 +71,11 @@ const This: Component<Props> = (props) => {
         class={styles.Full}
       />
       <input
-        class={styles.Full}
+        type="button"
+        value="delete"
+        onClick={() => props.removePreset()}
+      />
+      <input
         type="button"
         value="done"
         onClick={() => props.onSubmit()}
