@@ -56,7 +56,7 @@ const This: Component<Props> = (props) => {
           onContextMenu={onContextMenu}
           onClick={onClick}
         >
-          <h1>再生: {name()}</h1>
+          <h1>{name()}</h1>
         </button>
       </Show>
       <Show when={editMode()}>
